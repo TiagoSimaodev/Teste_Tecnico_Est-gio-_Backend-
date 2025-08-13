@@ -1,10 +1,12 @@
 To-Do List API – Teste Técnico Backend (Java)
+
 *Descrição do Projeto:
 Este projeto é uma API RESTful para gerenciamento de tarefas (To-Do List), desenvolvida como parte de um teste técnico para estágio backend em Java.
 A aplicação utiliza Spring Boot, Spring Data JPA, H2 (banco em memória para testes) e segue boas práticas de desenvolvimento, 
 incluindo tratamento centralizado de exceções e testes unitários com JUnit e Mockito.
 
 ##Tecnologias:
+
 Java 17
 Spring Boot 3.5.4
 Spring Data JPA
@@ -13,6 +15,7 @@ JUnit 5 + Mockito
 Maven
 
 ##Endpoints:
+
 Método	  Endpoint	    Descrição
 POST	   /tarefa	Cria  uma nova tarefa
 GET	    /tarefa	Lista   todas as tarefas
@@ -21,10 +24,12 @@ PUT    	/tarefa/{id}	  Atualiza status da tarefa
 DELETE	/tarefa/{id}	  Deleta uma tarefa
 
 ##Testes:
+
 TarefaServiceTest: testes unitários para métodos de negócio (criarTarefa, atualizarTarefa, etc.)
 TarefaControleTest: testes com MockMvc para endpoints REST, simulando requisições HTTP e validando respostas.
 
 ##Configuração do H2:
+
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
@@ -34,7 +39,9 @@ spring.h2.console.enabled=true
 spring.jpa.hibernate.ddl-auto=update
 
 ##Como Rodar:
+
 Clone o repositório
+
 Execute no terminal:
 git clone <repositorio>
 cd <projeto>
@@ -46,6 +53,7 @@ API disponível em http://localhost:8080/tarefa
 ##Segue a baixao exemplos de codigo JSON, para teste da api: 
 
 ##Criar uma tarefa pai com subtarefas:
+
 POST /tarefa
 
 {										
@@ -73,6 +81,7 @@ POST /tarefa
 }
 
 ##Atualizar uma tarefa existente:
+
 PUT /tarefa/{id}
 {
   "titulo": "Tarefa Atualizada",
@@ -87,7 +96,9 @@ PATCH /tarefa/{id}/status
   "status": "CONCLUIDO"
 }
 
+
 ##Deleta uma tarefa 
+
 DELETE /tarefa/id
 
 
@@ -95,6 +106,7 @@ OBS: Lembre que não dá para concluir uma tarefa pai se alguma subtarefa ainda 
 
 
 ##carregar todas as tarefa:
+
 GET /tarefa
 Sem filtro: retorna todas as tarefas.
 
