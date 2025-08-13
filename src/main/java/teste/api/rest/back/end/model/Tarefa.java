@@ -16,11 +16,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 
 @Entity
-@Table(name = "tabela")
+@Table(name = "tarefa")
 public class Tarefa {
 	
 	public Tarefa() {
@@ -30,11 +32,15 @@ public class Tarefa {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	
 	@NotBlank(message = "O titulo é obrigatório")
+	@Valid
 	private String titulo;
 	
+	@Valid
 	private String descricao;
 	
+	@NotNull(message = "A data de vencimento é obrigatória")
 	private LocalDateTime dataVencimento;
 	
 	public enum StatusTarefas {
